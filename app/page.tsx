@@ -1,8 +1,12 @@
-// Rung 0 - This page is my first ever lines of code written.
+// Rung 0 - This page simply loads/renders my mp3 into the browser with defualt browser audio controls. 
+// Rung 1 - The page now holds my own player instead of the browser's.
+
+import VinylPlayer from "@/components/VinylPlayer";
+
 export default function Home() {
   return (
-    <main> 
-      <audio controls src="/track.mp3" /> 
-      </main> 
+    <main style={{ minHeight: "100vh", display: "grid", placeItems: "center" }}>
+      <VinylPlayer />
+    </main>
   );
 }
