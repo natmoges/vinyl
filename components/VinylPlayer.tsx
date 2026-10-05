@@ -5,8 +5,10 @@
 // Next tap: it pauses, and the tap after that resumes from the same point.
 // When the track ends on its own, the button goes back to Play.
 // If the browser refuses to play, the button shows a caution sign.
+// Rung 2 — The disc is the button. Tap the record to play or pause it.
 
-import { useRef,useState } from "react";
+import { useRef, useState } from "react";
+import styles from "./VinylPlayer.module.css";
 
 type DeckStatus = "paused" | "playing" | "blocked";
 
@@ -32,9 +34,6 @@ export default function VinylPlayer() {
     }
   }
 
-  const label =
-    status === "playing" ? "Pause" : status === "blocked" ? "⚠" : "Play";
-
   const spokenLabel =
     status === "playing"
       ? "Pause Mars"
@@ -43,11 +42,20 @@ export default function VinylPlayer() {
         : "Play Mars";
 
   return (
-    <div>
+    <>
       <audio ref={audioRef} src="/track.mp3" onEnded={() => setStatus("paused")} />
-      <button type="button" onClick={handlePress} aria-label={spokenLabel}>
-        {label}
+      <button
+        type="button"
+        className={styles.deck}
+        onClick={handlePress}
+        aria-label={spokenLabel}
+      >
+        <span
+          className={status === "playing" ? `${styles.disc} ${styles.spinning}` : styles.disc}
+          style={{ backgroundImage: "url(/art.jpeg)" }}
+        />
+        {status === "blocked" && <span className={styles.warning}>⚠</span>}
       </button>
-    </div>
+    </>
   );
 }

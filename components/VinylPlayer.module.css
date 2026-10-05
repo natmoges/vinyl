@@ -1,0 +1,51 @@
+/* Rung 2 — The record. My astronaut art on a round disc. It turns at
+   23 RPM while playing, and freezes exactly where it is on pause,
+   when the track ends, or if the browser blocks playback. */
+
+.deck {
+  position: relative;
+  width: min(80vw, 420px);
+  aspect-ratio: 1;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.deck:focus-visible {
+  outline: 3px solid #888;
+  outline-offset: 6px;
+  border-radius: 50%;
+}
+
+.disc {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-size: 110%;
+  background-position: center;
+  animation: spin calc(60s / 23) linear infinite;
+  animation-play-state: paused;
+}
+
+.spinning {
+  animation-play-state: running;
+}
+
+.warning {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 4rem;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .disc { animation: none; }
+}
