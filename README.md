@@ -1,7 +1,7 @@
 # vinyl
 
 A record player for my track **"Mars"**, built in React + TypeScript (Next.js) and deployed on Vercel.
-The artwork and the track are both mine. It's my first code project.
+The artwork and the track are both mine. It's my first shipped code project! :)
 
 **Live:** https://vinyl-swart.vercel.app
 
