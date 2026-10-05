@@ -6,6 +6,7 @@
 // When the track ends on its own, the button goes back to Play.
 // If the browser refuses to play, the button shows a caution sign.
 // Rung 2 — The disc is the button. Tap the record to play or pause it.
+// Rung 3 — The needle drops onto the record while it plays and lifts when it stops.
 
 import { useRef, useState } from "react";
 import styles from "./VinylPlayer.module.css";
@@ -55,6 +56,10 @@ export default function VinylPlayer() {
           style={{ backgroundImage: "url(/art.jpeg)" }}
         />
         {status === "blocked" && <span className={styles.warning}>⚠</span>}
+                <span className={status === "playing" ? `${styles.arm} ${styles.armDown}` : styles.arm}>
+          <span className={styles.stylus} />
+        </span>
+        <span className={styles.pivot} />
       </button>
     </>
   );

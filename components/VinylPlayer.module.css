@@ -46,6 +46,52 @@
   to { transform: rotate(360deg); }
 }
 
+
+/* Rung 3 — The needle. Resting, it sits lifted 15° away from the record.
+   On play it swings down onto the record over 1.2s. On pause, at the end,
+   or if blocked, it lifts back up over 0.8s. */
+
+.arm {
+  position: absolute;
+  top: calc(3% + 12px);
+  right: calc(-6% + 14px);
+  width: 30%;
+  height: 4px;
+  border-radius: 2px;
+  background: #d9d9d9;
+  transform-origin: right center;
+  transform: rotate(-5deg);
+  transition: transform 0.8s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.armDown {
+  transform: rotate(-24deg);
+  transition-duration: 1.2s;
+}
+
+.stylus {
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f6a04d;
+  transform: translateY(-50%);
+}
+
+.pivot {
+  position: absolute;
+  top: 3%;
+  right: -6%;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #bdbdbd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .disc { animation: none; }
+  .arm { transition: none; }
 }
