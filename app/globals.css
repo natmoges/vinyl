@@ -1,13 +1,8 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* One face in both modes: the charcoal and off-white every other surface of mine uses. */
+  --background: #121212;
+  --foreground: #ededed;
+  color-scheme: dark;
 }
 
 html {
@@ -40,12 +35,6 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
 
 /* A way back from this build: the record, the code, my site. Top-left, out of the player's way. */
