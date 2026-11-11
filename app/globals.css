@@ -47,3 +47,24 @@ a {
     color-scheme: dark;
   }
 }
+
+/* A way back from this build: the record, the code, my site. Top-left, out of the player's way. */
+.wayBack {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.wayBack a {
+  padding: 8px 2px;
+}
+
+.wayBack a:hover,
+.wayBack a:focus-visible {
+  text-decoration: underline;
+}
